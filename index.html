@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avv. Maria Cristina Farinetti</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #e0e0e0, #d6d6d6);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card {
+      background: #f9f8f6;
+      width: 340px;
+      padding: 30px 24px 26px;
+      border-radius: 16px;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+      position: relative;
+      overflow: hidden;
+      color: #2b2b2b;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -70px;
+      right: -70px;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(0,0,0,0.04);
+      transform: rotate(45deg);
+    }
+    h1 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+    }
+    h2 {
+      margin: 6px 0 26px;
+      font-size: 13px;
+      font-weight: 400;
+      text-align: center;
+      color: #6a6a6a;
+    }
+    .info {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .icon {
+      width: 22px;
+      text-align: center;
+      font-size: 15px;
+      color: #7a7a7a;
+      flex-shrink: 0;
+    }
+    .divider {
+      height: 1px;
+      background: #cfcfcf;
+      margin: 22px 0;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: #2b2b2b;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .btn:hover {
+      background: #444;
+    }
+    .nowrap {
+      white-space: nowrap;
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Avv. Maria Cristina Farinetti</h1>
+    <h2>Studio Legale Farinetti-Ferrero</h2>
+
+    <div class="info">
+      <div class="icon">📞</div>
+      <div>
+        <a href="tel:+390173970312" class="nowrap">
+          0173&nbsp;970312
+        </a>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="icon">✉️</div>
+      <div>
+        <a href="mailto:mc.farinetti@gmail.com" class="nowrap">
+          mc.farinetti@gmail.com
+        </a>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="icon">📧</div>
+      <div>
+        <a href="mailto:mariacristina.farinetti@ordineavvocatialba.eu" class="nowrap">
+          mariacristina.farinetti@ordineavvocatialba.eu
+        </a>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="icon">📍</div>
+      <div>
+        <a
+          href="https://www.google.com/maps?q=44.7970950,7.9944108"
+          target="_blank"
+          class="nowrap"
+        >
+          Via Roma 97/A<br>12043 Canale (CN)
+        </a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <button class="btn" onclick="downloadVCard()">
+      ➕ Aggiungi ai contatti
+    </button>
+  </div>
+
+  <script>
+    function downloadVCard() {
+      const vCard = `
+BEGIN:VCARD
+VERSION:3.0
+N:Farinetti;Maria Cristina;;Avv.;
+FN:Avv. Maria Cristina Farinetti
+ORG:Studio Legale Farinetti-Ferrero
+TEL;TYPE=WORK,VOICE:+390173970312
+EMAIL;TYPE=INTERNET:mc.farinetti@gmail.com
+EMAIL;TYPE=INTERNET:mariacristina.farinetti@ordineavvocatialba.eu
+ADR;TYPE=WORK:;;Via Roma 97/A;Canale;CN;12043;Italia
+END:VCARD
+      `.trim();
+
+      const blob = new Blob([vCard], { type: "text/vcard;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "Maria_Cristina_Farinetti.vcf";
+      link.click();
+    }
+  </script>
+</body>
+</html>
